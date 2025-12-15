@@ -2,28 +2,6 @@
   "$schema": "https://railway.app/railway.schema.json",
   "build": {
     "builder": "NIXPACKS",
-    "buildCommand": "cd frontend && npm install && npm run build",
-    "startCommand": "cd backend && node server.js",
-    "nixpacksConfig": {
-      "phases": {
-        "setup": {
-          "cmds": [
-            "cd frontend && npm install",
-            "cd backend && npm install"
-          ]
-        },
-        "build": {
-          "cmds": ["cd frontend && npm run build"]
-        }
-      },
-      "start": {
-        "cmd": "cd backend && node server.js"
-      }
-    }
-  },
-  "deploy": {
-    "numReplicas": 1,
-    "restartPolicyType": "ON_FAILURE",
-    "sleepApplication": false
+    "nixpacksConfigPath": "./nixpacks.toml"
   }
 }

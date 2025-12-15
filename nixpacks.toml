@@ -1,0 +1,13 @@
+# nixpacks.toml
+[phases.setup]
+cmds = [
+    "cd frontend && npm install",
+    "cd backend && npm install"
+]
+
+[phases.build]
+cmds = ["cd frontend && npm run build"]
+
+[start]
+cmd = "cd backend && node server.js"
+port = 3000
