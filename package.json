@@ -1,0 +1,11 @@
+{
+  "name": "spaced-repetition-fullstack",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "start": "cd backend && node server.js"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
