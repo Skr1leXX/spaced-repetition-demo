@@ -1,0 +1,11 @@
+{
+  "name": "spaced-repetition-railway",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "echo 'Build is handled by Nixpacks' && exit 0",
+    "start": "cd backend && node server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
