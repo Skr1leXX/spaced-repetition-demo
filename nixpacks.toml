@@ -1,17 +1,11 @@
-# nixpacks.toml
 [phases.setup]
-# 1. Устанавливаем зависимости для фронтенда (включая devDependencies)
-cmds = ["cd ./frontend && npm ci --include=dev"]
-# 2. Устанавливаем зависимости для бэкенда
-cmds = ["cd ./backend && npm ci"]
+cmds = [
+    "cd frontend && npm install",
+    "cd backend && npm install"
+]
 
 [phases.build]
-# Собираем фронтенд. Vite сам вызовет tsc при необходимости.
-cmds = ["cd ./frontend && npm run build"]
+cmds = ["cd frontend && npm run build"]
 
 [start]
-cmd = "cd ./backend && node server.js"
-
-[variables]
-# Указываем конкретную версию Node.js (совместимую с вашим проектом)
-NODE_VERSION = "18.18.0"
+cmd = "cd backend && node server.js"
