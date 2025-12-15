@@ -13,9 +13,8 @@ RUN cd backend && npm install
 # 3. Копируем ВЕСЬ исходный код проекта
 COPY . .
 
-# 4. Собираем фронтенд
-RUN cd frontend && npm run build
-
+# 4. Собираем фронтенд через npx
+RUN cd frontend && npx tsc && npx vite build
 # 5. Запускаем сервер
 EXPOSE 3000
 CMD ["node", "backend/server.js"]
