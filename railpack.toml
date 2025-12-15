@@ -1,0 +1,29 @@
+# railpack.toml
+
+# 1. Указываем, что это Node.js проект
+[runtime]
+type = "node"
+version = "18"
+
+# 2. Определяем этапы сборки
+[build]
+# Устанавливаем зависимости фронтенда (включая TypeScript)
+"01-install-frontend" = "cd frontend && npm install --include=dev"
+# Устанавливаем зависимости бэкенда
+"02-install-backend" = "cd backend && npm install"
+# Собираем фронтенд
+"03-build-frontend" = "cd frontend && npm run build"
+
+# 3. Определяем команду запуска
+[run]
+command = "cd backend && node server.js"
+port = 3000
+
+# 4. Игнорируем ненужные файлы
+[ignore]
+patterns = [
+  "frontend/node_modules",
+  "backend/node_modules",
+  ".git",
+  "*.log"
+]
