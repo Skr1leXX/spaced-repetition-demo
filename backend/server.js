@@ -11,7 +11,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:5173', 
+  origin: '*', 
   credentials: true
 }));
 app.use(express.json());
@@ -99,6 +99,15 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 5000;
+
+if (process.env.NODE_ENV === 'production') {
+  // Указываем путь к собранному фронтенду
+  app.use(express.static(path.join(__dirname, '../frontend/dist')));
+  // Все GET-запросы, не начинающиеся с /api, отправляем на фронтенд
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/dist', 'index.html'));
+  });
+}
 
 app.listen(PORT, () => {
   console.log(`✅ Сервер запущен на порту ${PORT}`);
