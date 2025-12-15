@@ -1,10 +1,9 @@
 {
   "build": {
     "builder": "NIXPACKS",
-    "nixpacksConfigPath": "."
+    "nixpacksConfigPath": "./nixpacks.toml"
   },
   "deploy": {
-    "restartPolicyType": "ON_FAILURE",
-    "sleepApplication": false
+    "restartPolicyType": "ON_FAILURE"
   }
 }
